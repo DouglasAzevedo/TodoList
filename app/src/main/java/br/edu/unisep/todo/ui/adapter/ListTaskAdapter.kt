@@ -15,7 +15,7 @@ class ListTaskAdapter : RecyclerView.Adapter<ListTaskAdapter.TaskViewHolder>() {
     private var tasks = listOf<TaskDto>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_task, parent)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_task, parent, false)
         return TaskViewHolder(itemView)
     }
 
@@ -36,6 +36,7 @@ class ListTaskAdapter : RecyclerView.Adapter<ListTaskAdapter.TaskViewHolder>() {
             with (itemView) {
 
                 textViewTaskTitle.text = task.title
+
 
                 val color = when (task.priority) {
                     1 -> R.color.colorPriorityLow
