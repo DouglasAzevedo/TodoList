@@ -2,6 +2,7 @@ package br.edu.unisep.todo.domain.repository
 
 import br.edu.unisep.todo.data.db.ToDoDb
 import br.edu.unisep.todo.data.entity.Task
+import br.edu.unisep.todo.domain.dto.NewTaskDto
 import br.edu.unisep.todo.domain.dto.TaskDto
 
 class TaskRepository {
@@ -15,7 +16,7 @@ class TaskRepository {
         }
     }
 
-    suspend fun save(newTask: TaskDto) {
+    suspend fun save(newTask: NewTaskDto) {
         val task = Task(newTask.title,newTask.description,newTask.priority)
         taskDao.save(task)
     }
